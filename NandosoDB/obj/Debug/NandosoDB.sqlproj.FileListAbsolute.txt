@@ -1,0 +1,5 @@
+c:\Users\Raja\documents\visual studio 2015\Projects\Nandoso\NandosoDB\bin\Debug\NandosoDB.dacpac
+c:\Users\Raja\documents\visual studio 2015\Projects\Nandoso\NandosoDB\obj\Debug\NandosoDB.dll
+c:\Users\Raja\documents\visual studio 2015\Projects\Nandoso\NandosoDB\obj\Debug\NandosoDB.pdb
+c:\Users\Raja\documents\visual studio 2015\Projects\Nandoso\NandosoDB\bin\Debug\NandosoDB.dll
+c:\Users\Raja\documents\visual studio 2015\Projects\Nandoso\NandosoDB\bin\Debug\NandosoDB.pdb
