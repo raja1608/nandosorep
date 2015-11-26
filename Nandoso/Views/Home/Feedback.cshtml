@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Nandoso.Models.Feedback>
+
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Feedback</h2>
+
+<table>
+    <tr>
+        <td>
+            Enter your Name:
+        </td>
+        <td>
+            <input type="text" id="txtNewCommentName" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Enter your Comment:
+        </td>
+        <td>
+            <input type="text" id="txtNewComment" style="height:50px; width:150px;" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" id="btnAddNewComment" onclick="AddNewComment()" value="Add New Comment" />
+        </td>
+    </tr>
+</table>
+<table id="divMessages">
+</table>
+
+
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Feedback.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.10.2.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+}
+
+<script type="text/javascript">
+    var msgs = @Html.Raw(Json.Encode(Model));
+</script>

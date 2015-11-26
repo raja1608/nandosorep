@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="025759cb-a530-4d9e-a0e3-a85da245a8f8" ChangeDateTime="11/22/2015 04:57:50">
+    <Property Name="ElementName" Value="[dbo].[Table1].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Table1]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MenuId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5ea60a0f-b551-4394-8213-f2aad4786d6d" ChangeDateTime="11/22/2015 04:59:09">
+    <Property Name="ElementName" Value="[dbo].[Table1].[Variation_Medium]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Table1]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Variation_Regular" />
+  </Operation>
+</Operations>

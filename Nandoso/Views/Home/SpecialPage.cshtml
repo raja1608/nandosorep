@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Nandoso.Models.menu>
+@{
+    ViewBag.Title = ViewBag.LoginExists;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/facebookLogin.js"></script>
+
+@switch ((bool)ViewBag.LoginExists)
+{
+    case false:
+<div id="fbLogin">
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+    <div id="status">
+    </div>
+</div>
+        break;
+
+    case true:
+<div id="special">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(menuitem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(menuitem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(menuitem => item.Price)
+                </td>
+              
+            </tr>
+        }
+
+    </table>
+</div>
+        break;
+}
