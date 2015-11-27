@@ -33,6 +33,7 @@ namespace Nandoso.Controllers
             ViewBag.Message = "Menu page.";
             List<menu> lstMenu = context.Menus.ToList();
             List<menu> lstFilteredMenu = new List<menu>();
+
             foreach (menu tmpMenu in lstMenu)
             {
                 if (tmpMenu.IsTodaySpecial.CompareTo(0) == 0)
@@ -87,6 +88,7 @@ namespace Nandoso.Controllers
 
             context.messages.Add(newComment);
             context.SaveChanges();
+          
 
         }
 

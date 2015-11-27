@@ -81,7 +81,6 @@ function testAPI() {
 
 function SetLoginDetailsAndReload() {
        $.ajax({
-        //url: '@Url.Action("SetLoginDetails", "Home")',
         url: '/Home/SetLoginDetails',
         data: { dealerID: "" },
         type: 'POST',
