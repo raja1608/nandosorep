@@ -45,7 +45,6 @@ namespace Nandoso.Controllers
         {
             ViewBag.Message = "Customer feedback page.";
 
-            
             objTemp_original = messages_Constructed = new List<Models.Feedback>();
 
             objTemp_original = context.messages.ToList();
@@ -77,26 +76,11 @@ namespace Nandoso.Controllers
             return msg.messageReplies;
         }
 
-        //public void SaveReply(string messageText, string parentId, string Name)
-        //{
-        //    objTemp_original = (List<Feedback>)System.Web.HttpContext.Current.Session["MessageList"];
-        //    int newId = Convert.ToInt32(objTemp_original.OrderByDescending(o => o.Id).ToList()[0].Id);
-
-        //    Feedback newComment = new Feedback();
-        //    newComment.Id = Convert.ToString(++newId);
-        //    newComment.MessageText = messageText;
-        //    newComment.ParentId = parentId;
-        //    newComment.Name = Name;
-
-        //    context.messages.Add(newComment);
-        //    context.SaveChanges();
-
-        //}
-
         public void SaveReply(string messageText, string parentId, string Name)
         {
             Feedback newComment = new Feedback();
             newComment.Id = DateTime.Now.ToString("ddMMyyyyhhmmss");
+            //newComment.Id = Convert.ToString(++newId);
             newComment.MessageText = messageText;
             newComment.ParentId = parentId;
             newComment.Name = Name;
@@ -117,7 +101,7 @@ namespace Nandoso.Controllers
             string val = (string)System.Web.HttpContext.Current.Session["UserLoginDetails"];
             if (String.IsNullOrEmpty(val))
             {
-                //System.Web.HttpContext.Current.Session["UserLoginDetails"] = "Exists";
+               
                 ViewBag.LoginExists = false;
             }
             else
@@ -135,6 +119,7 @@ namespace Nandoso.Controllers
             return View(lstFilteredMenu);
            
         }
+
 
         [HttpPost]
         public void SetLoginDetails(string dealerID)

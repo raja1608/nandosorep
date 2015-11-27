@@ -12,10 +12,6 @@ namespace Nandoso.Models
     {
         public string Id { get; set; }
 
-        //public string Comment { get; set; }
-
-        //public Feedback Reply { get; set; }
-
         public string MessageText { get; set; }
 
         public string ParentId { get; set; }
@@ -28,7 +24,5 @@ namespace Nandoso.Models
         [NotMapped]
         public int order { get; set; }
 
-        //    [NotMapped]
-        //public string Dummy { get; set; }
     }
 }

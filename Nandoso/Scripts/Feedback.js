@@ -1,9 +1,7 @@
 ﻿var margin = 40;
 var divMargin = 0;
+
 $(document).ready(function () {
-    //alert(txt);
-    //alert(Messages)
-    //alert(msgs[0].MessageText);
     $.each(msgs, function ()
     {
         divMargin = 0;
@@ -17,32 +15,26 @@ AddNewElement = function(msg)
     divMargin = (msg.order) * (margin);
 
     var divMessage = document.getElementById("divMessages");
-    //divMessage.style.width = '500px';
-    //if (margin == 10)
-    //    divMessage.style.border = "solid";
 
     var innerDiv = document.createElement("div");
     
-    //New row for Name
+    //Creating a new row for Name
     var elementTableRow_Name = document.createElement("tr");
-
     var elementTableData_Name = document.createElement("td");
 
     var newDiv_Name = document.createElement("div");
-    newDiv_Name.innerText = msg.Name;//+ msg.order;
+    newDiv_Name.innerText = msg.Name;
     newDiv_Name.style.color = 'Blue';
     newDiv_Name.style.fontWeight = 'Bold';
     newDiv_Name.style.marginLeft = divMargin + 'px';
 
     elementTableData_Name.appendChild(newDiv_Name);
-
     elementTableRow_Name.appendChild(elementTableData_Name);
-
     innerDiv.appendChild(elementTableRow_Name);
 
-    //New row for Message
-    var elementTableRow_Message = document.createElement("tr");
 
+    //Creating a new row for Message
+    var elementTableRow_Message = document.createElement("tr");
     var elementTableData_Message = document.createElement("td");
 
     var newDiv_Message = document.createElement("div");
@@ -51,15 +43,12 @@ AddNewElement = function(msg)
     newDiv_Message.style.marginLeft = divMargin + 'px';
 
     elementTableData_Message.appendChild(newDiv_Message);
-
     elementTableRow_Message.appendChild(elementTableData_Message);
-
     innerDiv.appendChild(elementTableRow_Message);
 
-    //Add Reply box
 
+    //Adding a Reply box for the messages posted
     var elementTableRow_Reply = document.createElement("tr");
-
     var elementTableData_Reply = document.createElement("td");
 
     var newDiv_Reply = document.createElement("div");
@@ -70,15 +59,18 @@ AddNewElement = function(msg)
     newReplyLink.innerText = "Reply";
     newReplyLink.id = 'Reply' + msg.id;
 
+    //Function to post the reply for a comment
     newReplyLink.onclick = function () {
         var ReplyLinkDiv = document.getElementById(newDiv_Reply.id);
 
         var ReplyLinkId = document.getElementById(newReplyLink.id);
         ReplyLinkId.style.visibility = "hidden";
 
+        //Name textbox for a reply
         var newReplyNameTextBox = document.createElement("input");
         newReplyNameTextBox.type = 'text';
 
+        //Textbox for reply message
         var newReplyTextBox = document.createElement("input");
         newReplyTextBox.type = 'text';
         newReplyTextBox.style.height = '50px';
@@ -86,6 +78,7 @@ AddNewElement = function(msg)
 
         var breakLine = document.createElement("br");
 
+        //Button to post the reply message 
         var SendMessage = document.createElement("input");
         SendMessage.type = 'button';
         SendMessage.value = 'Send';
@@ -100,6 +93,8 @@ AddNewElement = function(msg)
                 }
             });
         }
+
+        //appending the Name, Message and the button to post the message.
         ReplyLinkDiv.appendChild(newReplyNameTextBox);
         ReplyLinkDiv.appendChild(breakLine);
         ReplyLinkDiv.appendChild(newReplyTextBox);
@@ -109,24 +104,18 @@ AddNewElement = function(msg)
     }
 
     newDiv_Reply.appendChild(newReplyLink);
-
     elementTableData_Reply.appendChild(newDiv_Reply);
-
     elementTableRow_Reply.appendChild(elementTableData_Reply);
-
     innerDiv.appendChild(elementTableRow_Reply);
 
     //Empty Row
     var elementTableRow_EmptyRow = document.createElement("tr");
     elementTableRow_EmptyRow.style.height = "10px";
-
     innerDiv.appendChild(elementTableRow_EmptyRow);
 
     divMessage.appendChild(innerDiv);
 
-    
-
-    //if (msg.messageReplies.length > 0)
+ 
     $.each(msg.messageReplies, function ()
     {
         AddNewElement(this);
@@ -142,6 +131,8 @@ AddReplyTextBox = function (replyId) {
     ReplyLinkId.appendChild(newReplyTextBox);
 }
 
+//Function to post a new feedback comment
+//This function is called when a customer tries to post a new feedback
 function AddNewComment()
 {
     var newComment = document.getElementById("txtNewComment");
